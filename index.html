@@ -38,33 +38,33 @@
 </div>
 
 <script>
-    // 1. TAMPAL LINK /exec YANG BARU ANDA SALIN TADI DI SINI
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyRb4QA0bIb5-SWCKo6_fq8_xWk7bTMxLCu-a9IeIr5HHdPEeEDej3aaMNKwlF4irA/exec';
-    
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx0KO0oNKzasJbeT-NLLi9cdtPg-tY-nKd45NUdtGF-ME4R4YY0iG7UC-Vi7aZLO5Js/exec';
     const form = document.getElementById('regForm');
-    const btn = document.getElementById('btn-submit');
 
     form.addEventListener('submit', e => {
         e.preventDefault();
+        const btn = document.querySelector('button');
         btn.disabled = true;
         btn.innerHTML = "SEDANG DIHANTAR...";
 
-        // Menghantar data menggunakan kaedah POST
-        fetch(scriptURL, { 
-            method: 'POST', 
-            body: new FormData(form),
-            mode: 'no-cors' 
-        })
+        // Ambil nilai terus dari kotak input
+        const n = document.querySelector('input[name="nama"]').value;
+        const em = document.querySelector('input[name="email"]').value;
+        const p = document.querySelector('input[name="password"]').value;
+
+        // Kita hantar guna kaedah URL supaya Google Sheets senang baca
+        const hantarKe = ${scriptURL}?nama=${encodeURIComponent(n)}&email=${encodeURIComponent(em)}&password=${encodeURIComponent(p)};
+
+        fetch(hantarKe, { mode: 'no-cors' })
         .then(() => {
-            alert("✅ BERJAYA! daftar user.");
+            alert("✅ BERJAYA! Data sudah masuk Sheets.");
             form.reset();
             btn.disabled = false;
             btn.innerHTML = "HANTAR SEKARANG";
         })
-        .catch(error => {
-            alert("❌ RALAT! Cuba lagi.");
+        .catch(() => {
+            alert("❌ RALAT! Sila semak internet.");
             btn.disabled = false;
-            btn.innerHTML = "HANTAR SEKARANG";
         });
     });
 </script>
