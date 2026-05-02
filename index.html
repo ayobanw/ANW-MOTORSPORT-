@@ -1,1 +1,127 @@
 
+ANW Store:
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANWSTORE - CPM1 TOOL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; color: white; font-family: sans-serif; margin: 0; padding: 20px; text-align: center; }
+        
+        /* Video Logo Berpusing */
+        .logo-container { margin-top: 20px; margin-bottom: 20px; }
+        video { 
+            width: 130px; height: 130px; border-radius: 30px; 
+            border: 3px solid #facc15; 
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
+            object-fit: cover;
+        }
+
+        /* Tulisan ANWSTORE Bergerak Pelangi */
+        .brand-name { 
+            font-size: 32px; font-weight: bold; 
+            background: linear-gradient(to right, #facc15, #4ade80, #38bdf8, #facc15); 
+            background-size: 200% auto;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            margin-bottom: 5px;
+            animation: shine 3s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        .tagline { color: #94a3b8; font-size: 14px; margin-bottom: 25px; }
+
+        /* Kad Login Manual */
+        .login-card { 
+            background: #1e293b; padding: 25px; border-radius: 20px; 
+            max-width: 400px; margin: 0 auto 30px auto;
+            border: 1px solid #334155; text-align: left;
+        }
+        .login-card h3 { text-align: center; margin-top: 0; color: #facc15; }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 12px; color: #94a3b8; margin-bottom: 5px; }
+        .input-group input { 
+            width: 100%; padding: 12px; background: #0f172a; 
+            border: 1px solid #334155; border-radius: 10px; 
+            color: white; box-sizing: border-box; 
+        }
+        .btn-masuk { 
+            display: block; width: 100%; padding: 15px; 
+            background: linear-gradient(90deg, #7c3aed, #a855f7); 
+            color: white; text-decoration: none; border-radius: 12px; 
+            font-weight: bold; text-align: center; margin-top: 10px;
+        }
+        .btn-daftar { 
+            display: block; width: 100%; padding: 12px; 
+            background: transparent; color: #94a3b8; 
+            text-decoration: none; border-radius: 12px; 
+            font-weight: bold; text-align: center; margin-top: 10px;
+            border: 1px solid #334155; font-size: 14px;
+        }
+
+        /* Kotak Statistik */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
+        .stat-box { background: #111827; padding: 20px; border-radius: 20px; border: 1px solid #1f2937; text-align: center; }
+        .stat-box i { font-size: 24px; margin-bottom: 10px; display: block; }
+        .stat-val { font-size: 20px; font-weight: bold; display: block; }
+        .stat-label { font-size: 10px; color: #6b7280; text-transform: uppercase; margin-top: 5px; }
+
+        .blue { color: #38bdf8; } .green { color: #4ade80; } .yellow { color: #fbbf24; } .red { color: #f87171; }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <video autoplay loop muted playsinline>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="brand-name">ANWSTORE</div>
+    <div class="tagline">CPM1 TOOL ● Online 24 Jam</div>
+
+    <div class="login-card">
+        <h3>LOGIN MANUAL</h3>
+        <div class="input-group">
+            <label>Email atau Username</label>
+            <input type="text" placeholder="email@contoh.com">
+        </div>
+        <div class="input-group">
+
+<label>Password</label>
+            <input type="password" placeholder="Min 6 karakter">
+        </div>
+        <a href="https://wa.me/60105467200" class="btn-masuk">
+            <i class="fas fa-sign-in-alt"></i> Masuk Sekarang
+        </a>
+        <a href="mailto:cicakayob@gmail.com" class="btn-daftar">
+            <i class="fas fa-user-plus"></i> Daftar Akun Baru
+        </a>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-box">
+            <i class="fas fa-tools blue"></i>
+            <span class="stat-val">500+</span>
+            <span class="stat-label">Projek Siap</span>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-clock green"></i>
+            <span class="stat-val">24/7</span>
+            <span class="stat-label">Server Online</span>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-bolt yellow"></i>
+            <span class="stat-val">99%</span>
+            <span class="stat-label">Success Rate</span>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-star red"></i>
+            <span class="stat-val">4.9</span>
+            <span class="stat-label">Rating Pelanggan</span>
+        </div>
+    </div>
+
+</body>
+</html>
