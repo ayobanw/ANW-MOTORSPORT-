@@ -86,15 +86,13 @@ function hantarPendaftaran() {
 
             const url = "https://script.google.com/macros/s/AKfycbyJRCKV94HP8PhqVUy_NGeg07l8wOginzmYqbpVk6o73boKtmcKtdJRdQoVfyJkMdF3/exec";
             
-            fetch(url + "?nama=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(pass))
-            .then(() => {
+            fetch(scriptURL + "?nama=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(pass))
+            .then(response => {
                 alert("Berjaya mendaftar!");
                 tukarKeLogin();
             })
-            .catch(() => alert("Ralat sambungan!"))
-            .finally(() => {
-                btn.innerHTML = "HANTAR";
-                btn.disabled = false;
+            .catch(error => {
+                alert("Ralat! cuba lagi.");
             });
         }
     </script>
