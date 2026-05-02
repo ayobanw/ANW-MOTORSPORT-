@@ -3,80 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANWSTORE - CPM1</title>
+    <title>ANWSTORE - PENDAFTARAN</title>
     <style>
-        body { background: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 10px; }
-        .container { width: 100%; max-width: 400px; background: #1e293b; padding: 30px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .header { text-align: center; margin-bottom: 25px; }
-        .header h2 { color: #facc15; margin: 0; letter-spacing: 2px; }
-        .header p { color: #94a3b8; font-size: 13px; margin-top: 5px; }
-        
-        .input-group { margin-bottom: 15px; text-align: left; }
-        .input-group label { display: block; font-size: 12px; color: #4ade80; margin-bottom: 8px; margin-left: 5px; font-weight: bold; }
-        .input-group input { width: 100%; padding: 15px; background: #0f172a; border: 1.5px solid #334155; border-radius: 15px; color: white; box-sizing: border-box; transition: 0.3s; outline: none; }
-        .input-group input:focus { border-color: #facc15; box-shadow: 0 0 10px rgba(250, 204, 21, 0.2); }
-        
-        #btn-submit { width: 100%; padding: 16px; background: linear-gradient(135deg, #22c55e, #16a34a); border: none; border-radius: 15px; color: white; font-weight: bold; font-size: 16px; cursor: pointer; margin-top: 10px; box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3); }
-        #btn-submit:disabled { background: #475569; cursor: not-allowed; opacity: 0.7; }
-        
-        .footer-link { margin-top: 20px; font-size: 13px; color: #94a3b8; cursor: pointer; text-decoration: underline; }
+        body { background: #0f172a; color: white; font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .card { background: #1e293b; padding: 30px; border-radius: 25px; width: 100%; max-width: 380px; border: 1.5px solid #4ade80; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; }
+        h2 { color: #facc15; margin-bottom: 20px; letter-spacing: 1px; }
+        .input-group { text-align: left; margin-bottom: 15px; }
+        label { display: block; font-size: 12px; color: #94a3b8; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 14px; background: #0f172a; border: 1px solid #334155; border-radius: 12px; color: white; box-sizing: border-box; outline: none; }
+        input:focus { border-color: #facc15; }
+        button { width: 100%; padding: 16px; background: linear-gradient(135deg, #22c55e, #16a34a); border: none; border-radius: 12px; color: white; font-weight: bold; font-size: 16px; cursor: pointer; margin-top: 10px; }
+        button:disabled { background: #475569; cursor: not-allowed; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h2>ANWSTORE</h2>
-        <p>PENDAFTARAN AKAUN BARU</p>
-    </div>
-
+<div class="card">
+    <h2>ANWSTORE</h2>
     <form id="regForm">
         <div class="input-group">
-            <label>NAMA PENGGUNA (USERNAME)</label>
-            <input type="text" name="nama" id="nama" placeholder="Cth: ayob_enterprise" required>
+            <label>NAMA PENGGUNA</label>
+            <input type="text" name="nama" placeholder="Masukkan nama" required>
         </div>
         <div class="input-group">
-            <label>EMAIL AKTIF</label>
-            <input type="email" name="email" id="email" placeholder="Cth: ayob@gmail.com" required>
+            <label>EMAIL</label>
+            <input type="email" name="email" placeholder="Masukkan email" required>
         </div>
         <div class="input-group">
-            <label>KATA LALUAN (PASSWORD)</label>
-            <input type="password" name="password" id="password" placeholder="Minima 6 karakter" required>
+            <label>KATA LALUAN</label>
+            <input type="password" name="password" placeholder="Masukkan password" required>
         </div>
-        
         <button type="submit" id="btn-submit">HANTAR SEKARANG</button>
     </form>
-    
-    <div class="header">
-        <div class="footer-link" onclick="location.reload()">KEMBALI KE LOGIN</div>
-    </div>
 </div>
 
 <script>
+    // 1. TAMPAL LINK /exec YANG BARU ANDA SALIN TADI DI SINI
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxll0ZfAs7UL09m_Y8NXsBarXbq-2tUCoL3hlMHfXCvHQSJcpoR4lWVU2DhFGFTNEQN/exec';
+    
     const form = document.getElementById('regForm');
     const btn = document.getElementById('btn-submit');
 
     form.addEventListener('submit', e => {
         e.preventDefault();
         btn.disabled = true;
-        btn.innerHTML = "SEDANG DIPROSES...";
+        btn.innerHTML = "SEDANG DIHANTAR...";
 
-        // Guna kaedah FormData supaya Apps Script senang baca
+        // Menghantar data menggunakan kaedah POST
         fetch(scriptURL, { 
             method: 'POST', 
             body: new FormData(form),
-            mode: 'no-cors' // Penting untuk elakkan ralat "Blocked by CORS"
+            mode: 'no-cors' 
         })
         .then(() => {
-            alert("✅ BERJAYA! Data anda telah disimpan.");
+            alert("✅ BERJAYA! Sila semak Google Sheets anda.");
             form.reset();
             btn.disabled = false;
             btn.innerHTML = "HANTAR SEKARANG";
         })
         .catch(error => {
-            alert("❌ RALAT! Sila cuba lagi.");
-            console.error('Error!', error.message);
+            alert("❌ RALAT! Cuba lagi.");
             btn.disabled = false;
             btn.innerHTML = "HANTAR SEKARANG";
         });
