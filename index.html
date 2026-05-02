@@ -3,111 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANWSTORE - CPM1 TOOL</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>ANWSTORE</title>
     <style>
-        body { background-color: #0f172a; color: white; font-family: sans-serif; margin: 0; padding: 20px; text-align: center; overflow-x: hidden; }
-        
-        .logo-container { margin-top: 20px; margin-bottom: 20px; }
-        video { 
-            width: 130px; height: 130px; border-radius: 30px; 
-            border: 3px solid #facc15; 
-            box-shadow: 0 0 25px rgba(250, 204, 21, 0.6);
-            object-fit: cover;
-        }
-
-        .brand-name { 
-            font-size: 32px; font-weight: bold; 
-            background: linear-gradient(to right, #facc15, #4ade80, #38bdf8, #facc15); 
-            background-size: 200% auto;
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            animation: shine 3s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .tagline { color: #94a3b8; font-size: 14px; margin-bottom: 25px; }
-
-        .login-card { 
-            background: rgba(30, 41, 59, 0.6); padding: 25px; border-radius: 25px; 
-            max-width: 400px; margin: 0 auto 30px auto;
-            border: 1px solid rgba(255, 255, 255, 0.1); text-align: left;
-            backdrop-filter: blur(15px);
-        }
-        .login-card h3 { text-align: center; margin-top: 0; color: #facc15; font-size: 18px; letter-spacing: 1.5px; }
-        
+        body { background-color: #0f172a; color: white; font-family: sans-serif; text-align: center; padding: 20px; }
+        .login-card { background: rgba(30, 41, 59, 0.6); padding: 25px; border-radius: 25px; max-width: 400px; margin: 0 auto; border: 1px solid rgba(255, 255, 255, 0.1); text-align: left; }
         .input-group { margin-bottom: 15px; }
         .input-group label { display: block; font-size: 12px; color: #94a3b8; margin-bottom: 8px; }
-        .input-group input { 
-            width: 100%; padding: 14px; background: rgba(15, 23, 42, 0.8); 
-            border: 1px solid #334155; border-radius: 12px; color: white; box-sizing: border-box; outline: none;
-        }
-        
-        .btn-primary { 
-            display: flex; justify-content: center; align-items: center; gap: 10px;
-            width: 100%; padding: 16px; background: linear-gradient(90deg, #8b5cf6, #a855f7); 
-            color: white; text-decoration: none; border-radius: 15px; font-weight: bold; margin-top: 10px; border:none; cursor:pointer;
-        }
-        .btn-outline { 
-            display: flex; justify-content: center; align-items: center; gap: 10px;
-            width: 100%; padding: 14px; background: transparent; color: white; 
-            text-decoration: none; border-radius: 15px; font-weight: bold; margin-top: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2); font-size: 14px; cursor:pointer;
-        }
-
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 450px; margin: 0 auto; }
-        .stat-box { background: rgba(30, 41, 59, 0.4); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
-        .stat-val { font-size: 22px; font-weight: bold; display: block; }
-        .stat-label { font-size: 10px; color: #6b7280; text-transform: uppercase; margin-top: 5px; }
+        .input-group input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
+        .btn { width: 100%; padding: 15px; border-radius: 12px; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .btn-primary { background: #8b5cf6; color: white; }
+        .btn-outline { background: transparent; border: 1px solid white; color: white; }
     </style>
 </head>
 <body>
 
-    <div class="logo-container">
-        <video autoplay loop muted playsinline>
-            <source src="video.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="brand-name">ANWSTORE</div>
-    <div class="tagline">CPM1 TOOL ● Online 24 Jam</div>
+    <h2 style="color: #facc15;">ANWSTORE</h2>
 
     <div id="login-section" class="login-card">
-        <h3>LOGIN MANUAL</h3>
+        <h3 style="text-align: center;">LOGIN</h3>
         <div class="input-group">
             <label>Username</label>
-            <input type="text" placeholder="Masukkan username">
+            <input type="text" placeholder="Username">
         </div>
         <div class="input-group">
             <label>Password</label>
-            <input type="password" placeholder="Min 6 karakter">
+            <input type="password" placeholder="Password">
         </div>
-        <button class="btn-primary">MASUK SEKARANG</button>
-        <button class="btn-outline" onclick="tukarKeDaftar()">DAFTAR AKUN BARU</button>
+        <button class="btn btn-primary">MASUK</button>
+        <button type="button" class="btn btn-outline" onclick="tukarKeDaftar()">DAFTAR AKAUN BARU</button>
     </div>
 
-<div id="register-section" class="login-card" style="display: none; border-color: #4ade80;">
-        <h3 style="color: #4ade80;">DAFTAR AKAUN</h3>
+    <div id="register-section" class="login-card" style="display: none;">
+        <h3 style="text-align: center; color: #4ade80;">DAFTAR AKAUN</h3>
         <div class="input-group">
-            <label>Username Pilihan</label>
+            <label>Username Baru</label>
             <input type="text" id="reg-name" placeholder="Contoh: ayobanw">
         </div>
         <div class="input-group">
-            <label>Alamat Email</label>
+            <label>Email</label>
             <input type="email" id="reg-email" placeholder="email@contoh.com">
         </div>
         <div class="input-group">
             <label>Password</label>
             <input type="password" id="reg-pass" placeholder="Min 6 karakter">
         </div>
-        <button onclick="hantarPendaftaran()" id="btn-submit" class="btn-primary" style="background: linear-gradient(90deg, #22c55e, #16a34a);">
-            HANTAR PENDAFTARAN
-        </button>
-        <button class="btn-outline" onclick="tukarKeLogin()">KEMBALI KE LOGIN</button>
-    </div>
-
-    <div class="stats-grid">
-        <div class="stat-box"><span class="stat-val">500+</span><span class="stat-label">User Aktif</span></div>
-        <div class="stat-box"><span class="stat-val">24/7</span><span class="stat-label">Server Status</span></div>
+        <button type="button" id="btn-submit" class="btn btn-primary" style="background: #22c55e;" onclick="hantarPendaftaran()">HANTAR PENDAFTARAN</button>
+        <button type="button" class="btn btn-outline" onclick="tukarKeLogin()">BATAL</button>
     </div>
 
     <script>
@@ -127,24 +68,24 @@
             const pass = document.getElementById('reg-pass').value;
             const btn = document.getElementById('btn-submit');
 
-            if(!name || !email || !pass) {
+            if(!name  !email  !pass) {
                 alert("Sila isi semua ruangan!");
                 return;
             }
 
-            btn.innerHTML = "MENDAFTAR...";
+            btn.innerHTML = "SEDANG DIHANTAR...";
             btn.disabled = true;
 
             const scriptURL = "https://script.google.com/macros/s/AKfycbyJRCKV94HP8PhqVUy_NGeg07l8wOginzmYqbpVk6o73boKtmcKtdJRdQoVfyJkMdF3/exec";
             
-            fetch(scriptURL + ?nama=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(pass)})
-                .then(response => {
-                    alert("Berjaya! Nama anda sudah masuk ke Admin Panel. Sila tunggu pengesahan.");
+            fetch(scriptURL + "?nama=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(pass))
+
+.then(response => {
+                    alert("Pendaftaran Berjaya! Data anda telah masuk ke Admin Panel.");
                     tukarKeLogin();
                 })
                 .catch(error => {
-                    alert("Ralat! Sila cuba lagi.");
-                    console.error('Error!', error.message);
+                    alert("Ralat sambungan! Sila cuba lagi.");
                 })
                 .finally(() => {
                     btn.innerHTML = "HANTAR PENDAFTARAN";
