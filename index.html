@@ -127,7 +127,7 @@
             const pass = document.getElementById('reg-pass').value;
             const btn = document.getElementById('btn-submit');
 
-            if(!name  !email  !pass) {
+            if(!name || !email || !pass) {
                 alert("Sila isi semua ruangan!");
                 return;
             }
